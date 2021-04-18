@@ -37,9 +37,9 @@ def covariance(first_list_of_values, second_list_of_values):
 
 def correlation(first_list_of_values, second_list_of_values):
     result = 0
-    standard_diviation_x = sqrt(variance(first_list_of_values))
-    standard_diviation_y = sqrt(variance(second_list_of_values))
+    standard_deviation_x = sqrt(variance(first_list_of_values))
+    standard_deviation_y = sqrt(variance(second_list_of_values))
     result = covariance(first_list_of_values, second_list_of_values)
-    result = result / (standard_diviation_x * standard_diviation_y)
+    result = result / (standard_deviation_x * standard_deviation_y)
     return result
 
