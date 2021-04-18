@@ -39,22 +39,26 @@ def run_analysis():
         # Format function fills {} with values passed as arguments. It has nice applications for better printing,
         # like limiting number of digits for floats or other formatting tools.
         print('"{}". Mean: {:3.2f}, Median: {:3.2f}, Std: {:3.4f}'.format(
-            feature_name, mean(list_of_values), median(list_of_values), variance(list_of_values)**0.5))
+            feature_name, mean(list_of_values), median(list_of_values), variance(list_of_values) ** 0.5))
     # here you should compute correlations. Be careful, pair should be sorted before printing
-    high_correlation=0.0
-    low_correlation=1.0
+    high_correlation = 0.0
+    low_correlation = 1.0
     strongest_pair = ("aaa", "bbb")
     weakest_pair = ("aaa", "bbb")
-    for outer, list_of_values_outer in sorted(data.items()):
-        for feature_name_inner, list_of_values_inner in sorted(data.items()):
-            if outer == feature_name_inner:
+    for outer_index, outer in enumerate(sorted(data.items())):
+        for inner_index, inner in enumerate(sorted(data.items())):
+            inner_name = inner[0]
+            inner_values = inner[1]
+            outer_name = outer[0]
+            outer_values = outer[1]
+            if outer_index <= inner_index:
                 continue
-            temp = correlation(list_of_values_inner, list_of_values_outer)
-            if abs(temp)>abs(high_correlation):
-                strongest_pair = (min(outer, feature_name_inner), max(outer, feature_name_inner))
-                high_correlation=temp
-            if abs(temp)<abs(low_correlation):
-                weakest_pair = min(outer, feature_name_inner), max(outer, feature_name_inner)
+            temp = correlation(inner_values, outer_values)
+            if abs(temp) > abs(high_correlation):
+                strongest_pair = (min(outer_name, inner_name), max(outer_name, inner_name))
+                high_correlation = temp
+            if abs(temp) < abs(low_correlation):
+                weakest_pair = min(outer_name, inner_name), max(outer_name, inner_name)
                 low_correlation = temp
     print('The strongest linear relationship is between: "{}","{}". '
           'The value is: {:3.4f}'.format(strongest_pair[0], strongest_pair[1], high_correlation))
