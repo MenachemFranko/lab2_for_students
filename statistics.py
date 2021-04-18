@@ -25,7 +25,10 @@ def covariance(first_list_of_values, second_list_of_values):
     result = 0
     # Place your code here
     for i in range(len(first_list_of_values)):
-        result = result + first_list_of_values[i]*second_list_of_values[i]
+        delta_x = (first_list_of_values[i] - mean(first_list_of_values))
+        delta_y = (second_list_of_values[i] - mean(second_list_of_values))
+        result = result + delta_x * delta_y
+    result = result / (len(first_list_of_values)-1)
 
     return result
 
