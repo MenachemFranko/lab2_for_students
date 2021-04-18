@@ -1,3 +1,6 @@
+from math import sqrt
+
+
 def median(list_of_values):
     sorted_list = sorted(list_of_values)
     center_index = int(len(list_of_values)/2) # round to int required because division always produces float
@@ -35,6 +38,10 @@ def covariance(first_list_of_values, second_list_of_values):
 
 def correlation(first_list_of_values, second_list_of_values):
     result = 0
+    standard_diviation_x = sqrt(variance(first_list_of_values))
+    standard_diviation_y = sqrt(variance(second_list_of_values))
+    result = covariance(first_list_of_values, second_list_of_values)
+    result = result / (standard_diviation_x * standard_diviation_y)
     # Place your code here
     return result
 
