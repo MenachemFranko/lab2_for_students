@@ -26,7 +26,6 @@ def variance(list_of_values):
 
 def covariance(first_list_of_values, second_list_of_values):
     result = 0
-    # Place your code here
     for i in range(len(first_list_of_values)):
         delta_x = (first_list_of_values[i] - mean(first_list_of_values))
         delta_y = (second_list_of_values[i] - mean(second_list_of_values))
@@ -42,6 +41,5 @@ def correlation(first_list_of_values, second_list_of_values):
     standard_diviation_y = sqrt(variance(second_list_of_values))
     result = covariance(first_list_of_values, second_list_of_values)
     result = result / (standard_diviation_x * standard_diviation_y)
-    # Place your code here
     return result
 
