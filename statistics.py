@@ -25,6 +25,12 @@ def variance(list_of_values):
 
 
 def covariance(first_list_of_values, second_list_of_values):
+    """
+    receive two lists of nums and calculate the covariance between them
+    :param first_list_of_values: first list
+    :param second_list_of_values: second list
+    :return: the covariance
+    """
     result = 0
     for i in range(len(first_list_of_values)):
         delta_x = (first_list_of_values[i] - mean(first_list_of_values))
@@ -36,6 +42,12 @@ def covariance(first_list_of_values, second_list_of_values):
 
 
 def correlation(first_list_of_values, second_list_of_values):
+    """
+    receive two lists and calculate the correlation between them, by using the covariance and variance methods
+    :param first_list_of_values: first list
+    :param second_list_of_values: second list
+    :return: the correlation
+    """
     result = 0
     standard_deviation_x = sqrt(variance(first_list_of_values))
     standard_deviation_y = sqrt(variance(second_list_of_values))
