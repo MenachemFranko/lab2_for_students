@@ -29,6 +29,12 @@ def load_data(path):
 
 
 def run_analysis():
+    """
+    run analysis on the file in file_path
+    * prints the mean, median and std for all features in the file
+    * prints the highest correlated pair (of features) and the least correlated pair, and the value of the correlation
+    :return: void
+    """
     file_path = './winequality.csv'
     data = load_data(file_path)
 
