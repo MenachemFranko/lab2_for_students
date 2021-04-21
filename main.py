@@ -51,8 +51,11 @@ def run_analysis():
     low_correlation = 1.0
     strongest_pair = ("aaa", "bbb")
     weakest_pair = ("aaa", "bbb")
-    for outer_index, outer in enumerate(sorted(data.items())):
-        for inner_index, inner in enumerate(sorted(data.items())):
+    arranged_data = sorted(data.items())  # this is a tuple the first item is the feature and the second the value.
+    # nested loop, over the tuple, compare only items that weren't compered so far.
+    # keep the strongest and weakest correlations.
+    for outer_index, outer in enumerate(arranged_data):
+        for inner_index, inner in enumerate(arranged_data):
             inner_name = inner[0]
             inner_values = inner[1]
             outer_name = outer[0]
